@@ -27,7 +27,7 @@ public class Teams {
 	private String teamLeadName;
 	
 	@ManyToOne
-    @JoinColumn(name="compony_id", nullable=false)
+    @JoinColumn(name="company_id", nullable=false)
     private Company company;
 	
 }

@@ -33,7 +33,7 @@ public class Company {
 	@Column(name = "company_add", nullable=false)
 	private String companyAddress;
 	
-	@Column(name = "inception_date", nullable=false)
+	@Column(name = "inception_date")
 	private Date inceptionDate;
 	
 	@OneToMany(mappedBy="company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
