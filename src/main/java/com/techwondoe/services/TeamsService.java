@@ -6,9 +6,9 @@ import com.techwondoe.entities.Teams;
 
 public interface TeamsService {
 	
-	Teams createTeam(Teams team);
+	Teams createTeam(Teams team, Integer cId);
 	
-	List<Teams> getAllTeams();
+	List<Object[]> getAllTeams();
 	
 	
 }

@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techwondoe.entities.Company;
-import com.techwondoe.servicesimpl.CompanyServiceImpl;
+import com.techwondoe.services.CompanyService;
 
 @RestController
 public class CompanyController {
 
 	@Autowired
-	private CompanyServiceImpl service;
+	private CompanyService service;
 	
 	@PostMapping("/company/new")
 	public ResponseEntity<Company> createCompany(@RequestBody Company company){
@@ -37,10 +38,10 @@ public class CompanyController {
 		
 	}
 	
-	@GetMapping("/company/name/{comName}")
-	public ResponseEntity<Company> getCompanyUsingName(@PathVariable String comName){
+	@GetMapping("/company")
+	public ResponseEntity<Company> getCompanyWithName(@RequestParam(value = "cName") String cname){
 		
-		Company company= service.getCompanyByName(comName);
+		Company company= service.getCompanyByName(cname);
 		return new ResponseEntity<Company>(company, HttpStatus.OK);
 		
 	}

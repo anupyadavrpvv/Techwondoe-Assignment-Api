@@ -29,7 +29,7 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public Company getCompanyByName(String companyName) {
 		
-		return repository.findByCompanyName(companyName);
+		return repository.searchCompany(companyName);
 	}
 	
 	
