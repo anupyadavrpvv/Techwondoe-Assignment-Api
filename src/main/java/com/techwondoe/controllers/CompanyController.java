@@ -2,6 +2,8 @@ package com.techwondoe.controllers;
 
 import java.util.Date;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,7 @@ public class CompanyController {
 	private CompanyService service;
 	
 	@PostMapping("/company/new")
+	@RolesAllowed("ROLE_ADMIN")
 	public ResponseEntity<Company> createCompany(@RequestBody Company company){
 		
 		Company newCompany= service.createCompany(company);

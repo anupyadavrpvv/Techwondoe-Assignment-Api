@@ -2,6 +2,8 @@ package com.techwondoe.controllers;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,7 @@ public class TeamsController {
 	private TeamsService service;
 	
 	@PostMapping("/company/{cId}/teams/new")
+	@RolesAllowed("ROLE_ADMIN")
 	public ResponseEntity<Teams> createTeam(
 			@RequestBody Teams teams,
 			@PathVariable Integer cId
